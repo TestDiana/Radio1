@@ -9,8 +9,9 @@ class RadioTest {
     Radio samsung = new Radio();
 
     @Test
+
     public void shouldNextRadioStation() {
-        int currentRadioStation = 9;
+        int currentRadioStation = 10;
         samsung.setCurrentRadioStation(currentRadioStation);
         samsung.nextRadioStation();
         assertEquals(0, samsung.getCurrentRadioStation());
@@ -18,32 +19,46 @@ class RadioTest {
 
 
 
-    @Test
-    public void shouldNextRadioStation1() {
-        int currentRadioStation = 5;
-        samsung.setCurrentRadioStation(currentRadioStation);
-        samsung.nextRadioStation();
-        assertEquals(6, samsung.getCurrentRadioStation());
-    }
 
     @Test
-    public void shouldNextRadioStation2() {
-        int currentRadioStation = 10;
+    public void shouldNextRadioStation1() {
+        Radio samsung = new Radio();
+        int currentRadioStation = 11;
         samsung.setCurrentRadioStation(currentRadioStation);
         samsung.nextRadioStation();
         assertEquals(1, samsung.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldPrewRadioStation() {
-        int currentRadioStation = 0;
+    public void shouldNextRadioStation2() {
+        Radio samsung = new Radio();
+        int currentRadioStation = 10;
         samsung.setCurrentRadioStation(currentRadioStation);
-        samsung.prevRadioStation();
-        assertEquals(9, samsung.getCurrentRadioStation());
+        samsung.nextRadioStation();
+        assertEquals(0, samsung.getCurrentRadioStation());
     }
 
     @Test
-    public void shouldPrewRadioStation1() {
+    public void shouldNextRadioStation3() {
+        Radio samsung = new Radio();
+        int currentRadioStation = 12;
+        samsung.setCurrentRadioStation(currentRadioStation);
+        samsung.nextRadioStation();
+        assertEquals(1, samsung.getCurrentRadioStation());
+    }
+
+    @Test
+    public void shouldPrevRadioStation() {
+        Radio samsung = new Radio();
+        int currentRadioStation = 0;
+        samsung.setCurrentRadioStation(currentRadioStation);
+        samsung.prevRadioStation();
+        assertEquals(10, samsung.getCurrentRadioStation());
+    }
+
+    @Test
+    public void shouldPrevRadioStation1() {
+        Radio samsung = new Radio();
         int currentRadioStation = 9;
         samsung.setCurrentRadioStation(currentRadioStation);
         samsung.prevRadioStation();
@@ -51,15 +66,17 @@ class RadioTest {
     }
 
     @Test
-    public void shouldPrewRadioStation2() {
+    public void shouldPrevRadioStation2() {
+        Radio samsung = new Radio();
         int currentRadioStation = -1;
         samsung.setCurrentRadioStation(currentRadioStation);
         samsung.prevRadioStation();
-        assertEquals(9, samsung.getCurrentRadioStation());
+        assertEquals(10, samsung.getCurrentRadioStation());
     }
 
     @Test
-    public void shouidSwitchRadioStation() {
+    public void shouldSwitchRadioStation() {
+        Radio samsung = new Radio();
         int currentRadioStation = 2;
         int radioStation =7;
         samsung.setCurrentRadioStation(currentRadioStation);
@@ -69,17 +86,19 @@ class RadioTest {
     }
 
     @Test
-    public void shouidSwitchRadioStation1() {
+    public void shouldSwitchRadioStation1() {
+        Radio samsung = new Radio();
         int currentRadioStation = 2;
         int radioStation =10;
         samsung.setCurrentRadioStation(currentRadioStation);
         samsung.switchRadioStation(radioStation);
-        assertEquals(2, samsung.getCurrentRadioStation());
+        assertEquals(10, samsung.getCurrentRadioStation());
 
     }
 
     @Test
-    public void shouidSwitchRadioStation2() {
+    public void shouldSwitchRadioStation2() {
+        Radio samsung = new Radio();
         int currentRadioStation = 2;
         int radioStation =-1;
         samsung.setCurrentRadioStation(currentRadioStation);
@@ -88,25 +107,45 @@ class RadioTest {
 
     }
 
+
+    @Test
+    public void shouldSwitchRadioStation3() {
+        Radio samsung = new Radio();
+        int currentRadioStation = 2;
+        int radioStation =13;
+        samsung.setCurrentRadioStation(currentRadioStation);
+        samsung.switchRadioStation(radioStation);
+        assertEquals(2, samsung.getCurrentRadioStation());
+
+    }
+
     @Test
     public void shouldSoundVolumePlus() {
-        int soundVolume = 10;
+        int soundVolume = 100;
         samsung.setSoundVolume(soundVolume);
         samsung.soundVolumePlus();
-        assertEquals(10, samsung.getSoundVolume());
+        assertEquals(100, samsung.getSoundVolume());
     }
 
     @Test
     public void shouldSoundVolumePlus1() {
-        int soundVolume = 9;
+        int soundVolume = 99;
         samsung.setSoundVolume(soundVolume);
         samsung.soundVolumePlus();
-        assertEquals(10, samsung.getSoundVolume());
+        assertEquals(100, samsung.getSoundVolume());
     }
 
     @Test
     public void shouldSoundVolumePlus2() {
-        int soundVolume = 11;
+        int soundVolume = 0;
+        samsung.setSoundVolume(soundVolume);
+        samsung.soundVolumePlus();
+        assertEquals(1, samsung.getSoundVolume());
+    }
+
+    @Test
+    public void shouldSoundVolumePlus3() {
+        int soundVolume = 101;
         samsung.setSoundVolume(soundVolume);
         samsung.soundVolumePlus();
         assertEquals(1, samsung.getSoundVolume());
