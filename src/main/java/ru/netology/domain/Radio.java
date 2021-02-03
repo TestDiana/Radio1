@@ -11,9 +11,6 @@ public class Radio {
 
 
 
-    public Radio() {
-
-    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
